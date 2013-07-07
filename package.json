@@ -1,0 +1,15 @@
+{
+  "name": "laterti.me",
+  "version": "0.0.0",
+  "description": "A tape-delayed messenger",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stuartpb/laterti.me.git"
+  },
+  "author": "Stuart P. Bentley",
+  "license": "MIT"
+}

@@ -18,8 +18,9 @@
   <body>
     <div id="topframe">
       <div id="overlay"></div>
-      <video controls><source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></video>
-
+      <video controls id="video">
+        <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      </video>
     </div>
     <button type="button" id="play-pause">Play/Pause</button>
     <p id='mst'></p>
@@ -30,23 +31,35 @@
       var msTime = 0;
       var startTime;
       var intervalId= null;
-      
-      
+
+      function ltPlay(){
+        startTime = Date.now() - msTime;
+        intervalId = setInterval(function(){
+          msTime = Date.now() - startTime;
+          document.getElementById('mst').textContent = msTime;
+        }, 10);
+      }
+      function ltPause(){
+        intervalId = clearInterval(intervalId);
+      }
+      function ltUpdateTime(time){
+        msTime = time;
+        document.getElementById('mst').textContent = msTime;
+      }
       function ltPlayPause(){
         if(intervalId){
-          intervalId = clearInterval(intervalId);
+          ltPause();
         } else {
-          startTime = Date.now() - msTime;
-          intervalId = setInterval(function(){
-            msTime = Date.now() - startTime;
-            document.getElementById('mst').textContent = msTime;
-          }, 10);
+          ltPlay();
         }
       }
-      
+
       playPauseButton.addEventListener('click',function(evt){
         ltPlayPause();
         vidframe.dispatchEvent(new evt.constructor(evt.type, evt));
+      });
+      vidframe.addEventListener('timeupdate',function(evt){
+        ltUpdateTime(vidframe.currentTime * 1000);
       });
     </script>
   </body>

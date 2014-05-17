@@ -20,13 +20,17 @@
       <div id="overlay"></div>
       <iframe height="315" src="//www.youtube.com/embed/PqSZEGj-SuI" frameborder="0" id="video"></iframe>
     </div>
+    <button type="button" id="play-pause">Play/Pause</button>
     <p id='mst'></p>
     <script>
       var overlay = document.getElementById('overlay');
       var vidframe = document.getElementById('video');
+      var playPauseButton = document.getElementById('play-pause');
       var msTime = 0;
       var startTime;
       var intervalId= null;
+      
+      
       function ltPlayPause(){
         if(intervalId){
           intervalId = clearInterval(intervalId);
@@ -38,7 +42,8 @@
           }, 10);
         }
       }
-      overlay.addEventListener('click',function(evt){
+      
+      playPauseButton.addEventListener('click',function(evt){
         ltPlayPause();
         vidframe.dispatchEvent(new evt.constructor(evt.type, evt));
       });

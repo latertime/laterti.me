@@ -21,13 +21,17 @@
       <video controls><source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></video>
 
     </div>
+    <button type="button" id="play-pause">Play/Pause</button>
     <p id='mst'></p>
     <script>
       var overlay = document.getElementById('overlay');
       var vidframe = document.getElementById('video');
+      var playPauseButton = document.getElementById('play-pause');
       var msTime = 0;
       var startTime;
       var intervalId= null;
+      
+      
       function ltPlayPause(){
         if(intervalId){
           intervalId = clearInterval(intervalId);
@@ -39,7 +43,8 @@
           }, 10);
         }
       }
-      overlay.addEventListener('click',function(evt){
+      
+      playPauseButton.addEventListener('click',function(evt){
         ltPlayPause();
         vidframe.dispatchEvent(new evt.constructor(evt.type, evt));
       });

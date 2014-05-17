@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>laterti.me prototype</title>
+    <style>
+      #topframe {
+        position: relative;
+      }
+      #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topframe">
+      <div id="overlay"></div>
+      <iframe height="315" src="//www.youtube.com/embed/PqSZEGj-SuI" frameborder="0" id="video"></iframe>
+    </div>
+    <p id='mst'></p>
+    <script>
+      var overlay = document.getElementById('overlay');
+      var vidframe = document.getElementById('video');
+      var msTime = 0;
+      var startTime;
+      var intervalId= null;
+      function ltPlayPause(){
+        if(intervalId){
+          intervalId = clearInterval(intervalId);
+        } else {
+          startTime = Date.now() - msTime;
+          intervalId = setInterval(function(){
+            msTime = Date.now() - startTime;
+            document.getElementById('mst').textContent = msTime;
+          }, 10);
+        }
+      }
+      overlay.addEventListener('click',function(evt){
+        ltPlayPause();
+        vidframe.dispatchEvent(new evt.constructor(evt.type, evt));
+      });
+    </script>
+  </body>
+</html>

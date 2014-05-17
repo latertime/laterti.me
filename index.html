@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>laterti.me prototype</title>
+    <style>
+      #topframe {
+        position: relative;
+      }
+      #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topframe">
+      <div id="overlay"></div>
+      <video controls id="video">
+        <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      </video>
+    </div>
+    <script>
+        var messages = [
+        {
+          time: 7.5,
+          body: "wow",
+          user: "sinahab",
+          date: 1400365286166
+        },
+        {
+          time: 8,
+          body: "such mountain",
+          user: "sinahab",
+          date: 1400365328554
+        },
+        {
+          body: 'many dagron',
+          time: 26,
+          date: 1400365176182,
+          user: 'stuartpb'
+        },
+      ];
+    </script>
+    <script>
+      var vidframe = document.getElementById('video');
+      var secTime = 0;
+
+      function ltUpdateTime(time){
+        secTime = time;
+        document.getElementById('mst').textContent = secTime;
+      }
+
+      vidframe.addEventListener('timeupdate',function(evt){
+        ltUpdateTime(vidframe.currentTime);
+      });
+    </script>
+  </body>
+</html>

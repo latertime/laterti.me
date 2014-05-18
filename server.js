@@ -4,6 +4,7 @@ var ws = require('ws');
 var mongojs = require('mongojs');
 var _ = require('underscore');
 var crypto = require('crypto');
+var cfg = require('envigor')();
 
 function md5(content) {
 	var hash = crypto.createHash("md5");
@@ -15,7 +16,7 @@ var app = express();
 app.use(serveStatic(__dirname + '/client'));
 app.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
 
-var db = mongojs('latertime', ['comments']);
+var db = mongojs(cfg.mongodb.url, ['comments']);
 
 var server = new ws.Server({port: 5001});
 server.on('connection', function(socket) {

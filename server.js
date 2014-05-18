@@ -15,26 +15,27 @@ server.on('connection', function(socket) {
 	socket.on('message', function(message) {
 		var request = JSON.parse(message);
 		if (request.type === "join") {
-			this.subscriptionID = request.subscriptionID;
-			db.comments.find({ id : request.id }).forEach(function(err, doc) {
+			this.streamId = request.streamId;
+			db.comments.find({ streamId : request.streamId }).forEach(function(err, doc) {
 				if(!doc) {
 					return;
 				}
 				doc.type = "comment";
-				socket.send(JSON.stringify(_.omit(doc, ['_id', 'id'])));
+				socket.send(JSON.stringify(_.omit(doc, ['_id', 'streamId'])));
 			});
 		}
 		if (request.type === "sendmessage") {
-			comment = {
-				id: request.id,
-				videoTime: request.videoTime,
-				realTime: request.realTime,
-				text: request.text
+			var comment = {
+				streamId: this.streamId,
+				time: request.time,
+				date: request.date,
+				user: request.user,
+				body: request.body
 			};
 			db.comments.save(comment);
 			for (var i in server.clients) {
-				if (server.clients[i].subscriptionID === request.id) {
-					server.clients[i].send(JSON.stringify(_.omit(comment, 'id')));
+				if (server.clients[i].streamId === request.streamId) {
+					server.clients[i].send(JSON.stringify(_.omit(comment, ['_id', 'streamId'])));
 				}
 			}
 		}

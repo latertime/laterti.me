@@ -4,7 +4,7 @@ var streamId;
 function join(streamId) {
 	var request = {
 		type : "join",
-		id : streamId
+		streamId : streamId
 	};
 	function sendJoin(){
     	socket.send(JSON.stringify(request));

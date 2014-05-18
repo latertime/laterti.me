@@ -6,7 +6,12 @@ function join(streamId) {
 		type : "join",
 		id : streamId
 	};
-	socket.send(JSON.stringify(request));
+	function sendJoin(){
+    	socket.send(JSON.stringify(request));
+	}
+	if(socket.readyState<1){
+	    socket.onopen = sendJoin;
+	} else sendJoin();
 }
 
 function sendMessage(msg) {

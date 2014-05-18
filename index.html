@@ -5,16 +5,20 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="topframe">
-      <div id="overlay"></div>
+  <div id="container">
+    <div id="left">
       <video controls id="video">
         <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
       </video>
     </div>
-    <div id="input">
-      <input id="msg-entry" type="text">
+    <div id="right">
+      <div id="input">
+        <textarea id="msg-entry"></textarea>
+      </div>
+      <div id="comments">asdf</div>
     </div>
-    <div id="comments"></div>
+    <div id="clear"></div>
+  </div>
 
     <script>
         var messages = [

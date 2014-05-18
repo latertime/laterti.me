@@ -1,3 +1,9 @@
+
+@-webkit-keyframes border-fade {
+	0% {border: 2px solid rgba(255,255,255,1);}
+  100% {border: 2px solid rgba(255,255,255,0);}
+}
+
 html, body {
 	height: 100%;
 	margin: 0;
@@ -26,7 +32,8 @@ body {
 
 #right {
 	flex: 1;
-    display: flex;
+	display: flex;
+	flex-direction: column;
 	background-color: #333;
 }
 
@@ -71,6 +78,10 @@ body {
 .comment {
 	padding: 4px;
 	color: #FEFEF2;
+	border: 2px solid rgba(255,255,255,1);
+	-webkit-animation: border-fade linear 0.5s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-fill-mode: forwards;
 }
 
 .com-info {
@@ -89,19 +100,6 @@ body {
 	background-color: #555;
 	padding: 4px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

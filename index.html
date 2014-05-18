@@ -2,18 +2,7 @@
 <html>
   <head>
     <title>laterti.me prototype</title>
-    <style>
-      #topframe {
-        position: relative;
-      }
-      #overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="topframe">
@@ -26,7 +15,7 @@
       <input id="msg-entry" type="text">
     </div>
     <div id="comments"></div>
-    
+
     <script>
         var messages = [
         {
@@ -108,26 +97,26 @@
       function ltCreateComment(msg){
           var comment = document.createElement('div');
           comment.className = 'comment';
-          
+
           var comUser = document.createElement('span');
           comUser.className = 'com-user';
           comUser.textContent = msg.user;
-          
+
           var comTime = document.createElement('span');
           comTime.className = 'com-time';
           comTime.textContent = msg.time;
-          
+
           var comBody = document.createElement('span');
           comBody.className = 'com-body';
           comBody.textContent = msg.body;
-          
+
           comment.appendChild(comUser);
           comment.appendChild(comTime);
           comment.appendChild(comBody);
-          
+
           return comment;
       }
-      
+
     </script>
   </body>
 </html>

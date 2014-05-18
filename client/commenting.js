@@ -23,12 +23,11 @@ if (evt.keyCode == 10 || evt.keyCode == 13) {
 
 function ltInsertMessage(msg) {
 var i = 0;
-while (i<messages.length && messages[i].time < msg.time) {
+while (i < messages.length && (messages[i].time < msg.time ||
+    (messages[i].time == msg.time && messages[i].date <= msg.date))) {
   i++;
 }
-while (messages[i].time == msg.time && messages[i].date <= msg.date) {
-  i++;
-}
+
 messages.splice(i, 0, msg);
 if (msg.time <= vidframe.currentTime) {
   var comment = ltCreateComment(msg);

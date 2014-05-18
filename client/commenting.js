@@ -10,7 +10,7 @@ var secTime = 0;
 var roomId = 0;
 
 msgEntry.addEventListener('keypress', function(evt){
-  if (evt.keyCode == 10 || evt.keyCode == 13) {
+  if ((evt.keyCode == 10 || evt.keyCode == 13) && msgEntry.value.trim()) {
     sendMessage({
       body: msgEntry.value,
       user: loggedInUser,
@@ -60,20 +60,25 @@ function ltCreateComment(msg){
   var comment = document.createElement('div');
   comment.className = 'comment';
 
+  var comInfo = document.createElement('div');
+  comInfo.className = 'com-info';
+
   var comUser = document.createElement('span');
   comUser.className = 'com-user';
   comUser.textContent = msg.user;
 
   var comTime = document.createElement('span');
   comTime.className = 'com-time';
-  comTime.textContent = msg.time;
+  var timeStamp = Math.floor(msg.time/60) + ":" + ('00'+Math.floor(msg.time%60)).slice(-2);
+  comTime.textContent = timeStamp;
 
-  var comBody = document.createElement('span');
+  var comBody = document.createElement('div');
   comBody.className = 'com-body';
   comBody.textContent = msg.body;
 
-  comment.appendChild(comUser);
-  comment.appendChild(comTime);
+  comInfo.appendChild(comUser);
+  comInfo.appendChild(comTime);
+  comment.appendChild(comInfo);
   comment.appendChild(comBody);
 
   return comment;

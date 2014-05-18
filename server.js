@@ -6,7 +6,7 @@ var _ = require('underscore');
 
 var app = express();
 app.use(serveStatic(__dirname + '/client'));
-app.listen(5000);
+app.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
 
 var db = mongojs('latertime', ['comments']);
 

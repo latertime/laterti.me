@@ -26,6 +26,9 @@ var i = 0;
 while (i<messages.length && messages[i].time < msg.time) {
   i++;
 }
+while (messages[i].time == msg.time && messages[i].date <= msg.date) {
+  i++;
+}
 messages.splice(i, 0, msg);
 if (msg.time <= vidframe.currentTime) {
   var comment = ltCreateComment(msg);

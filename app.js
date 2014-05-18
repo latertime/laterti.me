@@ -1,20 +1,44 @@
 var express = require('express');
-var socketio = require('socket.io');
+var serveStatic = require('serve-static');
+var ws = require('ws');
+var mongojs = require('mongojs');
+var _ = require('underscore');
 
-module.exports = function(cfg) {
-  var app = express();
-  var io = socketio.listen(app);
-  
-  app.set('views',__dirname+'/views');
+var app = express();
+app.use(serveStatic(__dirname + '/client'));
+app.listen(5000);
 
-  app.use(express.static('www'));
+var db = mongojs('latertime', ['comments']);
 
-  app.use(express.cookieParser());
-
-  app.use(express.urlencoded());
-  app.use(express.multipart({hash:'sha1'}));
-  app.use(express.csrf());
-
-  return app;
-};
-    
+var server = new ws.Server({port: 5001});
+server.on('connection', function(socket) {
+	socket.on('message', function(message) {
+		var request = JSON.parse(message);
+		if (request.type === "subscribe") {
+			this.subscriptionID = request.subscriptionID;
+		}
+		if (request.type === "getcomments") {
+			db.comments.find({ id : request.id }).forEach(function(err, doc) {
+				if(!doc) {
+					return;
+				}
+				doc.type = "comment";
+				socket.send(JSON.stringify(_.omit(doc, ['_id', 'id'])));
+			});
+		}
+		if (request.type === "sendcomment") {
+			comment = {
+				id: request.id,
+				videoTime: request.videoTime,
+				realTime: request.realTime,
+				text: request.text
+			};
+			db.comments.save(comment);
+			for (var i in server.clients) {
+				if (server.clients[i].subscriptionID === request.id) {
+					server.clients[i].send(JSON.stringify(_.omit(comment, 'id')));
+				}
+			}
+		}
+	});
+});

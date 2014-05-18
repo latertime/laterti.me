@@ -3,6 +3,13 @@ var serveStatic = require('serve-static');
 var ws = require('ws');
 var mongojs = require('mongojs');
 var _ = require('underscore');
+var crypto = require('crypto');
+
+function md5(content) {
+	var hash = crypto.createHash("md5");
+	hash.update(content, "utf8");
+	return hash.digest("hex");
+}
 
 var app = express();
 app.use(serveStatic(__dirname + '/client'));
@@ -30,8 +37,10 @@ server.on('connection', function(socket) {
 				time: request.time,
 				date: request.date,
 				user: request.user,
+				user_md5: md5(request.user),
 				body: request.body
 			};
+			console.log(comment);
 			db.comments.save(comment);
 			for (var i in server.clients) {
 				if (server.clients[i].streamId === this.streamId) {

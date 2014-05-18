@@ -21,6 +21,20 @@ msgEntry.addEventListener('keypress', function(evt){
   }
 });
 
+function twiddlify(value, andmask, ormask, factor) {
+  return (value * (factor || 1)) & (andmask || 0xffffffff) | (ormask || 0);
+}
+
+function colorizer(andmask, ormask, factor) {
+  andmask = andmask | 0xffffff;
+  return function(value) {
+    var color = twiddlify(value, andmask, ormask, factor).toString(16);
+    return '#000000'.slice(0, 7-color.length) + color;
+  };
+}
+
+var ibColorizer = colorizer(0xF0F0F0, 0, 1);
+
 function ltInsertMessage(msg) {
   var i = 0;
   while (i < messages.length && (messages[i].time < msg.time ||
@@ -62,6 +76,8 @@ function ltCreateComment(msg){
 
   var comInfo = document.createElement('div');
   comInfo.className = 'com-info';
+  var testInfo = ibColorizer(parseInt(msg.user_md5.slice(0, 6), 16));
+  comInfo.style.backgroundColor = testInfo;
 
   var comUser = document.createElement('span');
   comUser.className = 'com-user';
@@ -92,6 +108,7 @@ join(roomId);
 setCommentHandler(function(msg){
   ltInsertMessage({
     user: msg.user,
+    user_md5: msg.user_md5,
     body: msg.body,
     time: msg.time,
     date: msg.date

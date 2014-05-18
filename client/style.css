@@ -1,4 +1,3 @@
-
 @-webkit-keyframes border-fade {
 	0% {border: 2px solid rgba(255,255,255,1);}
   100% {border: 2px solid rgba(255,255,255,0);}
@@ -35,6 +34,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	background-color: #333;
+	padding: 4px;
 }
 
 #clear {
@@ -50,8 +50,6 @@ body {
 }
 
 #input {
-	width: 100%;
-	display: inline-block;
 	position: relative;
 }
 
@@ -59,14 +57,15 @@ body {
 }
 
 #msg-entry	{
-	width: 100%;
-	height:100%;
-	background-color: #262626;
-	border:none;
-	box-shadow: inset  0px 0px 15px rgba(0, 0, 0, 0.7);
+	background: #444;
+	box-shadow: 0px 0px 0px 1px #777 inset;
+	border: none;
 	color: #ccc;
 	font-size: 18px;
+	margin: 4px;
+	margin-left: 6px;
 	padding: 8px;
+	outline: none;
 }
 
 #comments	{
@@ -87,13 +86,13 @@ body {
 .com-info {
 	position: relative;
 	background-color: #666;
-	padding: 2px;
+	padding: 2px 4px;
 	font-size: 12px;
 }
 
 .com-time {
 	position: absolute;
-	right: 0;
+	right: 4px;
 	cursor: pointer;
 }
 

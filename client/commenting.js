@@ -76,8 +76,7 @@ function ltCreateComment(msg){
 
   var comInfo = document.createElement('div');
   comInfo.className = 'com-info';
-  var testInfo = ibColorizer(parseInt(msg.user_md5.slice(0, 6), 16));
-  comInfo.style.backgroundColor = testInfo;
+  comInfo.style.backgroundColor = ibColorizer(parseInt(msg.user_md5.slice(0, 6), 16));
 
   var comUser = document.createElement('span');
   comUser.className = 'com-user';

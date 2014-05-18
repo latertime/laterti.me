@@ -40,7 +40,6 @@ server.on('connection', function(socket) {
 				user_md5: md5(request.user),
 				body: request.body
 			};
-			console.log(comment);
 			db.comments.save(comment);
 			for (var i in server.clients) {
 				if (server.clients[i].streamId === this.streamId) {

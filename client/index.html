@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>laterti.me</title>
-		<link rel="stylesheet" type="text/css" href="/style.css">
-		<script src="/laterti.me.js"></script>
-	</head>
-	<body>
-		Video ID: <input type="text" id="videoid"><br>
-		<button onclick="subscribe();getComments();">Subscribe</button>
-		<div id="comments"></div>
-		Comment: <input type="text" id="commenttext"><br>
-		<button onclick="sendComment();">Send Comment</button>
-	</body>
+  <head>
+    <title>laterti.me prototype</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="topframe">
+      <div id="overlay"></div>
+      <video controls id="video">
+        <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div id="input">
+      <input id="msg-entry" type="text">
+    </div>
+    <div id="comments"></div>
+    <script src='/stream.js'></script>
+    <script src='/commenting.js'></script>
+  </body>
 </html>

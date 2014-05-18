@@ -62,10 +62,10 @@ body {
 	border: none;
 	color: #ccc;
 	font-size: 18px;
-	margin: 4px;
-	margin-left: 6px;
 	padding: 8px;
 	outline: none;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 #comments	{

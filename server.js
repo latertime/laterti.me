@@ -34,7 +34,7 @@ server.on('connection', function(socket) {
 			};
 			db.comments.save(comment);
 			for (var i in server.clients) {
-				if (server.clients[i].streamId === request.streamId) {
+				if (server.clients[i].streamId === this.streamId) {
 					server.clients[i].send(JSON.stringify(_.extend(
 					    _.omit(comment, ['_id', 'streamId']),
 					    {type:'comment'})));

@@ -94,6 +94,7 @@ body {
 .com-time {
 	position: absolute;
 	right: 0;
+	cursor: pointer;
 }
 
 .com-body {

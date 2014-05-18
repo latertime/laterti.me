@@ -71,6 +71,9 @@ function ltCreateComment(msg){
   comTime.className = 'com-time';
   var timeStamp = Math.floor(msg.time/60) + ":" + ('00'+Math.floor(msg.time%60)).slice(-2);
   comTime.textContent = timeStamp;
+  comTime.addEventListener('click', function(evt){
+    vidframe.currentTime = msg.time;
+  });
 
   var comBody = document.createElement('div');
   comBody.className = 'com-body';

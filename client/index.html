@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>laterti.me</title>
-		<link rel="stylesheet" type="text/css" href="/style.css">
-		<script src="/laterti.me.js"></script>
-	</head>
-	<body>
-		Video ID: <input type="text" id="videoid"><br>
-		<button onclick="subscribe();getComments();">Subscribe</button>
-		<div id="comments"></div>
-		Comment: <input type="text" id="commenttext"><br>
-		<button onclick="sendComment();">Send Comment</button>
-	</body>
+  <head>
+    <title>laterti.me prototype</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="left">
+        <video controls id="video">
+          <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+          <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">
+          <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+        </video>
+      </div>
+      <div id="right">
+        <div id="input">
+          <textarea id="msg-entry"></textarea>
+        </div>
+        <div id="comments">asdf</div>
+      </div>
+      <div id="clear"></div>
+    </div>
+    <script src='/commenting.js'></script>
+    <script src='/stream.js'></script>
+  </body>
 </html>

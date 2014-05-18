@@ -26,14 +26,14 @@ function twiddlify(value, andmask, ormask, factor) {
 }
 
 function colorizer(andmask, ormask, factor) {
-  andmask = andmask | 0xffffff;
+  andmask = andmask & 0xffffff;
   return function(value) {
     var color = twiddlify(value, andmask, ormask, factor).toString(16);
     return '#000000'.slice(0, 7-color.length) + color;
   };
 }
 
-var ibColorizer = colorizer(0xF0F0F0, 0, 1);
+var ibColorizer = colorizer(0x7f7f7f, 0x404040, 1);
 
 function ltInsertMessage(msg) {
   var i = 0;

@@ -15,9 +15,19 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="latertime.svg">
+   sodipodi:docname="latertime.svg"
+   inkscape:export-filename="/home/stuart/Projects/latertime/laterti.me/client/latertime.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
-     id="defs4" />
+     id="defs4">
+    <path
+       style="stroke:none"
+       d="m 389.82453,271.92903 c 80,0 96,32 96,40 0,8 0,24 -24,48 -24,24 -48,32 -48,48 0,16 40,40 40,40 0,0 -56,-8 -56,-56 0,-33 -40,-56 -72,-56 -16,0 -32,-16 -32,-32 0,-16 16,-32 96,-32 z"
+       id="path2985"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssszcssss" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,11 +35,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.56"
-     inkscape:cx="68.557457"
-     inkscape:cy="131.39079"
+     inkscape:zoom="1.8101934"
+     inkscape:cx="98.792382"
+     inkscape:cy="165.86901"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="svg2"
      showgrid="true"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -60,7 +70,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -77,7 +87,6 @@
        id="use2989"
        width="744.09448"
        height="1052.3622"
-       transform="translate(293.82453,271.92903)"
        style="fill:#4ddbff;fill-opacity:1" />
     <use
        x="0"
@@ -86,19 +95,7 @@
        id="use2991"
        width="744.09448"
        height="1052.3622"
-       transform="matrix(-1,0,0,-1,485.84891,527.92903)"
+       transform="matrix(-1,0,0,-1,779.67344,799.85806)"
        style="fill:#f5b489;fill-opacity:1" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="pseudodefs"
-     style="opacity:0.17307691;display:none">
-    <path
-       style="stroke:none"
-       d="m 96,0 c 80,0 96,32 96,40 0,8 0,24 -24,48 -24,24 -48,32 -48,48 0,16 40,40 40,40 0,0 -56,-8 -56,-56 C 104,87.015155 64,72 32,64 16.47772,60.11943 0,48 0,32 0,16 16,0 96,0 z"
-       id="path2985"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ssszcssss" />
   </g>
 </svg>

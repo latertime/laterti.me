@@ -23,7 +23,7 @@
      id="defs4">
     <path
        style="stroke:none"
-       d="m 389.82453,271.92903 c 80,0 96,32 96,40 0,8 0,24 -24,48 -24,24 -48,32 -48,48 0,16 40,40 40,40 0,0 -56,-8 -56,-56 0,-33 -40,-56 -72,-56 -16,0 -32,-16 -32,-32 0,-16 16,-32 96,-32 z"
+       d="m 128,0 c 80,0 96,32 96,40 0,8 0,24 -24,48 -24,24 -48,32 -48,48 0,16 40,40 40,40 0,0 -56,-8 -56,-56 C 136,87 96,64 64,64 48,64 32,48 32,32 32,16 48,0 128,0 z"
        id="path2985"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ssszcssss" />
@@ -35,12 +35,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8101934"
-     inkscape:cx="98.792382"
-     inkscape:cy="165.86901"
+     inkscape:zoom="0.90509668"
+     inkscape:cx="-87.841764"
+     inkscape:cy="334.25499"
      inkscape:document-units="px"
-     inkscape:current-layer="svg2"
-     showgrid="true"
+     inkscape:current-layer="layer1"
+     showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -78,8 +78,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-261.82453,-271.92903)"
-     style="display:inline">
+     style="display:inline;opacity:0.96">
     <use
        x="0"
        y="0"
@@ -95,7 +94,7 @@
        id="use2991"
        width="744.09448"
        height="1052.3622"
-       transform="matrix(-1,0,0,-1,779.67344,799.85806)"
+       transform="matrix(-1,0,0,-1,256,256)"
        style="fill:#f5b489;fill-opacity:1" />
   </g>
 </svg>

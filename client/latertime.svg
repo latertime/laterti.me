@@ -15,16 +15,9 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="latertime.svg">
   <defs
-     id="defs4">
-    <path
-       style="stroke:none"
-       d="m -60.006976,262.31445 c 73.624698,0.53317 160.346266,26.89494 112.326266,78.78678 -33.989929,35.77527 -57.0475668,36.3856 -65.966698,57.76941 -8.919132,21.38382 42.070584,50.10462 42.070584,50.10462 0,0 -60.510055,2.60721 -62.108084,-59.2426 -2.160364,-83.61434 -100.806212,-37.21247 -100.968512,-94.93358 -0.0816,-29.01729 40.627063,-31.09887 74.646444,-32.48463 z"
-       id="path2985"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cczcssc" />
-  </defs>
+     id="defs4" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -32,12 +25,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="136.12609"
-     inkscape:cy="113.57922"
+     inkscape:zoom="2.56"
+     inkscape:cx="68.557457"
+     inkscape:cy="131.39079"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
+     inkscape:current-layer="layer2"
+     showgrid="true"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -46,7 +39,19 @@
      inkscape:window-height="998"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-grids="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       empspacing="4"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       spacingx="4px"
+       spacingy="4px" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -55,7 +60,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,24 +68,37 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-261.82453,-271.92903)">
+     transform="translate(-261.82453,-271.92903)"
+     style="display:inline">
     <use
        x="0"
        y="0"
        xlink:href="#path2985"
        id="use2989"
-       transform="matrix(-0.96572285,0.06199511,-0.06199511,-0.96572285,375.57745,784.4677)"
        width="744.09448"
        height="1052.3622"
-       style="fill: hsl(24, 85%, 75%);" />
+       transform="translate(293.82453,271.92903)"
+       style="fill:#4ddbff;fill-opacity:1" />
     <use
        x="0"
        y="0"
        xlink:href="#path2985"
        id="use2991"
-       transform="matrix(0.96572285,-0.06199511,0.06199511,0.96572285,404.07161,15.390366)"
        width="744.09448"
        height="1052.3622"
-       style="fill: hsl(192, 100%, 65%);" />
+       transform="matrix(-1,0,0,-1,485.84891,527.92903)"
+       style="fill:#f5b489;fill-opacity:1" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="pseudodefs"
+     style="opacity:0.17307691;display:none">
+    <path
+       style="stroke:none"
+       d="m 96,0 c 80,0 96,32 96,40 0,8 0,24 -24,48 -24,24 -48,32 -48,48 0,16 40,40 40,40 0,0 -56,-8 -56,-56 C 104,87.015155 64,72 32,64 16.47772,60.11943 0,48 0,32 0,16 16,0 96,0 z"
+       id="path2985"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssszcssss" />
   </g>
 </svg>

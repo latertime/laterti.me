@@ -15,7 +15,7 @@ body {
 	font-family: helvetica, sans-serif;
 }
 
-#container {
+.container {
 	display: flex;
 	height: 100%;
 }

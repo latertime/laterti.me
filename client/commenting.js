@@ -7,7 +7,6 @@ var msgEntry = document.getElementById('msg-entry');
 var displayedCom = [];
 var loggedInUser = "stuartpb";
 var secTime = 0;
-var roomId = 0;
 
 msgEntry.addEventListener('keypress', function(evt){
   if ((evt.keyCode == 10 || evt.keyCode == 13) && msgEntry.value.trim()) {
@@ -103,13 +102,23 @@ function ltCreateComment(msg){
 }
 
 // start listening
-join(roomId);
-setCommentHandler(function(msg){
-  ltInsertMessage({
-    user: msg.user,
-    user_md5: msg.user_md5,
-    body: msg.body,
-    time: msg.time,
-    date: msg.date
+function letsGo(evt) {
+  var roomId=document.getElementById('roomname').value;
+  loggedInUser=document.getElementById('username').value;
+  var vidUrl=URL.createObjectUrl(document.getElementById('vidfile').files[0]);
+  vidframe.src= vidUrl;
+  join(roomId);
+  setCommentHandler(function(msg){
+    ltInsertMessage({
+      user: msg.user,
+      user_md5: msg.user_md5,
+      body: msg.body,
+      time: msg.time,
+      date: msg.date
+    });
   });
-});
+  document.getElementById('prompt').hidden=true;
+  document.getElementById('interface').hidden=false;
+}
+
+document.getElementById('submit-form').addEventListener('click',letsGo);

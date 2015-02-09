@@ -1,4 +1,4 @@
-var socket = new WebSocket('ws://' + window.location.hostname + ':5001/');
+var socket = new WebSocket('ws://' + window.location.hostname + '/');
 var streamId;
 
 function join(streamId) {

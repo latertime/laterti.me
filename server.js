@@ -14,11 +14,12 @@ function md5(content) {
 
 var app = express();
 app.use(serveStatic(__dirname + '/client'));
-app.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
+var httpServer=require('http').createServer(app);
+httpServer.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
 
 var db = mongojs(cfg.mongodb.url, ['comments']);
 
-var server = new ws.Server({port: 5001});
+var server = new ws.Server({server: httpServer});
 server.on('connection', function(socket) {
 	socket.on('message', function(message) {
 		var request = JSON.parse(message);

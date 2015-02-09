@@ -105,7 +105,7 @@ function ltCreateComment(msg){
 function letsGo(evt) {
   var roomId=document.getElementById('roomname').value;
   loggedInUser=document.getElementById('username').value;
-  var vidUrl=URL.createObjectUrl(document.getElementById('vidfile').files[0]);
+  var vidUrl=URL.createObjectURL(document.getElementById('vidfile').files[0]);
   vidframe.src= vidUrl;
   join(roomId);
   setCommentHandler(function(msg){

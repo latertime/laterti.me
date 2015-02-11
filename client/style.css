@@ -1,3 +1,7 @@
+[hidden] {
+  display: none !important;
+}
+
 @-webkit-keyframes border-fade {
 	0% {border: 2px solid rgba(255,255,255,1);}
   100% {border: 2px solid rgba(255,255,255,0);}

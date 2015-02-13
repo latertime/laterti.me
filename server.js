@@ -1,6 +1,5 @@
 var express = require('express');
 var serveStatic = require('serve-static');
-var ws = require('ws');
 var mongojs = require('mongojs');
 var _ = require('underscore');
 var crypto = require('crypto');
@@ -19,10 +18,13 @@ httpServer.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
 
 var db = mongojs(cfg.mongodb.url, ['comments']);
 
-var server = new ws.Server({server: httpServer});
+var server = new require('primus')(httpServer);
+var connectedClients = [];
+
 server.on('connection', function(socket) {
-	socket.on('message', function(message) {
-		var request = JSON.parse(message);
+    connectedClients.push(socket);
+	socket.on('data', function(message) {
+		var request = message;
 		if (request.type === "join") {
 			this.streamId = request.streamId;
 			db.comments.find({ streamId : request.streamId }).forEach(function(err, doc) {
@@ -30,7 +32,7 @@ server.on('connection', function(socket) {
 					return;
 				}
 				doc.type = "comment";
-				socket.send(JSON.stringify(_.omit(doc, ['_id', 'streamId'])));
+				socket.write(_.omit(doc, ['_id', 'streamId']));
 			});
 		}
 		if (request.type === "sendmessage") {
@@ -43,11 +45,11 @@ server.on('connection', function(socket) {
 				body: request.body
 			};
 			db.comments.save(comment);
-			for (var i in server.clients) {
-				if (server.clients[i].streamId === this.streamId) {
-					server.clients[i].send(JSON.stringify(_.extend(
+			for (var i in connectedClients) {
+				if (connectedClients[i].streamId === this.streamId) {
+					connectedClients[i].write(_.extend(
 					    _.omit(comment, ['_id', 'streamId']),
-					    {type:'comment'})));
+					    {type:'comment'}));
 				}
 			}
 		}

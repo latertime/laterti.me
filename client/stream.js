@@ -1,4 +1,6 @@
-var socket = new WebSocket('ws://' + window.location.hostname + '/');
+/* global Primus */
+
+var socket = new Primus('ws://' + window.location.hostname + '/');
 var streamId;
 
 function join(streamId) {
@@ -7,7 +9,7 @@ function join(streamId) {
 		streamId : streamId
 	};
 	function sendJoin(){
-    	socket.send(JSON.stringify(request));
+    	socket.write(request);
 	}
 	if(socket.readyState<1){
 	    socket.onopen = sendJoin;
@@ -23,17 +25,16 @@ function sendMessage(msg) {
 		body : msg.body,
 		user : msg.user
 	};
-	socket.send(JSON.stringify(request));
+	socket.write(request);
 }
 
 var commentHandler = null;
 
-socket.onmessage = function(message) {
-	var response = JSON.parse(message.data);
+socket.on('data',function(response) {
 	if (response.type === "comment") {
 		return commentHandler && commentHandler(response);
 	}
-};
+});
 
 function setCommentHandler(fn){
     commentHandler = fn;

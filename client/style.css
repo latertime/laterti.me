@@ -24,12 +24,25 @@ body {
 	height: 100%;
 }
 
+.center-items {
+	align-items: center;
+	justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+form > * {
+  margin: 4px;
+}
+
 #left {
 	display: flex;
 	flex: 4;
 	float: left;
-	align-items: center;
-	justify-content: center;
 	background-color: #151515;
 }
 

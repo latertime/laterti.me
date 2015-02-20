@@ -85,7 +85,7 @@ server.on('connection', function(socket) {
 		});
   }
   function sendComment(comment) {
-    return r.table('comments').insert(comment);
+    return r.table('comments').insert(comment).run(manips);
   }
   function receiveComment(comment) {
     socket.write({

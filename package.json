@@ -16,10 +16,10 @@
     "express": "~3.3.4",
     "underscore": "^1.6.0",
     "serve-static": "^1.1.0",
-    "ws": "^0.4.31",
     "mongojs": "^0.13.0",
     "envigor": "^0.6.0",
-    "primus": "^2.4.12"
+    "primus": "^2.4.12",
+    "engine.io": "^1.5.1"
   },
   "engines": {
     "node": "0.10.x"

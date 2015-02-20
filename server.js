@@ -18,7 +18,7 @@ httpServer.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
 
 var db = mongojs(cfg.mongodb.url, ['comments']);
 
-var server = new require('primus')(httpServer);
+var server = new require('primus')(httpServer, {transformer: 'engine.io'});
 var connectedClients = [];
 
 server.on('connection', function(socket) {

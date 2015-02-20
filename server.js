@@ -17,6 +17,8 @@ app.use(serveStatic(__dirname + '/client'));
 var httpServer=require('http').createServer(app);
 httpServer.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
 
+var serverReportError = console.error.bind(console);
+
 var manips, changes;
 r.connect(cfg.rethinkdb).then(function(conn) {
   manips = conn;
@@ -25,10 +27,12 @@ r.connect(cfg.rethinkdb).then(function(conn) {
     .table('comments')
       .index('streamId')
     .run(manips);
-});
-r.connect(cfg.rethinkdb).then(function(conn) {
+}).then(function(results){
+  return r.connect(cfg.rethinkdb);
+}).then(function(conn) {
   changes = conn;
-});
+  changes.use(cfg.rethinkdb && cfg.rethinkdb.db || 'latertime');
+}).catch(serverReportError);
 
 var server = new Primus(httpServer, {transformer: 'engine.io'});
 

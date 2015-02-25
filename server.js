@@ -3,14 +3,9 @@ var serveStatic = require('serve-static');
 var Primus = require('primus');
 var r = require('rethinkdb');
 var endex = require('endex');
-var crypto = require('crypto');
 var cfg = require('envigor')();
 
-function md5(content) {
-	var hash = crypto.createHash("md5");
-	hash.update(content, "utf8");
-	return hash.digest("hex");
-}
+var colorFromString = require('./lib/colorFromString');
 
 var app = express();
 app.use(serveStatic(__dirname + '/client'));
@@ -84,7 +79,6 @@ server.on('connection', function(socket) {
 			sentDate: new Date(message.date),
 			receivedDate: r.now(),
 			username: username || message.user,
-			//color: to be derived from user in table in a future commit
 			body: message.body
 		});
   }
@@ -94,8 +88,10 @@ server.on('connection', function(socket) {
   function receiveComment(comment) {
     socket.write({
       type: 'comment',
-      user: comment.username,
-      user_md5: md5(comment.username),
+      user: {
+        name: comment.username,
+        color: colorFromString(comment.username)
+      },
       time: comment.time,
       date: comment.receivedDate,
       body: comment.body

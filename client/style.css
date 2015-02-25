@@ -45,6 +45,8 @@ body {
 .center-items {
 	align-items: center;
 	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
 }
 
 form {

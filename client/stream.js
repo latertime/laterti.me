@@ -3,10 +3,11 @@ function StreamSocket() {
   var socket = new Primus('ws://' + window.location.hostname + '/');
   var streamId;
 
-  function join(streamId) {
+  function join(opts) {
     var request = {
       type : "join",
-      streamId : streamId
+      streamId: opts.streamId,
+      username: opts.username
     };
     function sendJoin(){
         socket.write(request);

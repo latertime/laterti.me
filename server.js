@@ -50,7 +50,9 @@ server.on('connection', function(socket) {
   function joinStream(message) {
     streamId = message.streamId;
     username = message.username;
-
+	  if (!streamId || !username) {
+	    return reportError(new Error('must join with streamId and username'));
+	  }
     if (existingCursor) {
       existingCursor.close();
       existingCursor = null;
@@ -83,7 +85,7 @@ server.on('connection', function(socket) {
 			time: message.time,
 			sentDate: new Date(message.date),
 			receivedDate: r.now(),
-			username: username || message.user,
+			username: username,
 			body: message.body
 		});
   }
@@ -108,7 +110,7 @@ server.on('connection', function(socket) {
 		}
 		if (message.type === "sendmessage") {
 		  if (!streamId) {
-		    reportError(new Error('sent message without a stream'));
+		    return reportError(new Error('sent message without a stream'));
 		  }
 			sendCommentMessage(message).then(function(result) {
 			  if (message.id) socket.write({

@@ -14,7 +14,7 @@
    height="256"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="latertime.svg"
    inkscape:export-filename="/home/stuart/Projects/latertime/laterti.me/client/latertime.png"
    inkscape:export-xdpi="90"
@@ -23,7 +23,7 @@
      id="defs4">
     <path
        style="stroke:none"
-       d="m 128,0 c 80,0 96,24 96,40 0,16 -8,24 -32,48 -24,24 -40,28 -40,44 0,16 12,20 40,44 C 140,164 132,152 132,128 132,56 32,96 32,32 32,16 48,0 128,0 z"
+       d="m 128,0 c 80,0 96,24 96,40 0,16 -8,24 -32,48 -24,24 -40,28 -40,44 0,16 18,24 32,36 -16,0 -50,-16 -50,-40 C 134,56 32,96 32,32 32,16 48,0 128,0 z"
        id="path2985"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ssszcsss" />
@@ -35,20 +35,20 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.56"
-     inkscape:cx="128.15327"
-     inkscape:cy="110.10477"
+     inkscape:zoom="3.0078125"
+     inkscape:cx="128"
+     inkscape:cy="128"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="true"
+     showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:window-width="1680"
-     inkscape:window-height="998"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-bbox="true"
      inkscape:snap-grids="true">
@@ -59,8 +59,9 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       spacingx="4px"
-       spacingy="4px" />
+       spacingx="2px"
+       spacingy="2px"
+       originx="-0.1px" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -70,7 +71,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -84,9 +85,9 @@
        y="0"
        xlink:href="#path2985"
        id="use2989"
-       width="744.09448"
+       style="fill:#4ddbff;fill-opacity:1"
        height="1052.3622"
-       style="fill:#4ddbff;fill-opacity:1" />
+       width="744.09448" />
     <use
        x="0"
        y="0"

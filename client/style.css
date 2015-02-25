@@ -16,7 +16,25 @@ html, body {
 body {
 	background-color: #333;
 	overflow: hidden;
-	font-family: helvetica, sans-serif;
+	font-family: Arimo, Helvetica, sans-serif;
+}
+
+.wordmark {
+	font-size: 96px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.wordmark > * {
+  margin: 16px;
+}
+
+.blue {
+  color: hsl(192, 100%, 65%);
+}
+.sand {
+  color: hsl(24, 85%, 75%);
 }
 
 .container {

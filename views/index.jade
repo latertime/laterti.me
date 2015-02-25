@@ -5,9 +5,13 @@ html
     link(rel="shortcut icon", type="image/png", href="/favicon@4x.png", sizes="64x64")
     link(rel="shortcut icon", type="image/png", href="/favicon@2x.png", sizes="32x32")
     link(rel="shortcut icon", type="image/png", href="/favicon.png", sizes="16x16")
+    link(rel="stylesheet", href="//fonts.googleapis.com/css?family=Arimo")
     link(rel="stylesheet", href="style.css")
   body
     #prompt.container.center-items
+      .wordmark
+        img(src='latertime.svg',height=128,width=128)
+        div <span class="blue">later</span><span class="sand">time</span>
       form
         label Room Name <input id="roomname">
         label Username <input id="username">
@@ -16,7 +20,6 @@ html
     #interface.container(hidden)
       #left.center-items
         video#video(controls)
-        </video>
       #right
         #input
           input#msg-entry(placeholder="type here!")

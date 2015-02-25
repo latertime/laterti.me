@@ -8,7 +8,12 @@ var cfg = require('envigor')();
 var colorFromString = require('./lib/colorFromString');
 
 var app = express();
+app.set('view engine', 'jade');
+app.get('/', function(req, res) {
+  res.render('index');
+});
 app.use(serveStatic(__dirname + '/client'));
+
 var httpServer=require('http').createServer(app);
 httpServer.listen(process.env.PORT || 5000, process.env.IP || '0.0.0.0');
 

@@ -1,0 +1,28 @@
+doctype
+html
+  head
+    title latertime
+    link(rel="shortcut icon", type="image/png", href="/favicon@4x.png", sizes="64x64")
+    link(rel="shortcut icon", type="image/png", href="/favicon@2x.png", sizes="32x32")
+    link(rel="shortcut icon", type="image/png", href="/favicon.png", sizes="16x16")
+    link(rel="stylesheet", href="style.css")
+  body
+    #prompt.container.center-items
+      form
+        label Room Name <input id="roomname">
+        label Username <input id="username">
+        label Video <input type="file" id="vidfile">
+        button#submit-form(type="button") GO
+    #interface.container(hidden)
+      #left.center-items
+        video#video(controls)
+        </video>
+      #right
+        #input
+          input#msg-entry(placeholder="type here!")
+        #comments
+    script(src='/primus/primus.js')
+    script(src='/stream.js')
+    script(src='/chatters/sidebar.js')
+    script(src='/players/video-element.js')
+    script(src='/init.js')

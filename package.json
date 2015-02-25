@@ -13,13 +13,14 @@
   "author": "Stuart P. Bentley",
   "license": "MIT",
   "dependencies": {
-    "express": "~3.3.4",
-    "serve-static": "^1.1.0",
-    "envigor": "^0.8.2",
-    "primus": "^2.4.12",
+    "endex": "^0.1.1",
     "engine.io": "^1.5.1",
+    "envigor": "^0.8.2",
+    "express": "~3.3.4",
+    "jade": "^1.9.2",
+    "primus": "^2.4.12",
     "rethinkdb": "^1.16.1",
-    "endex": "^0.1.1"
+    "serve-static": "^1.1.0"
   },
   "engines": {
     "node": "0.10.x"

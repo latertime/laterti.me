@@ -6,8 +6,8 @@ function videoElementPlayer(opts) {
   function getCurrentTime() {
     return vidframe.currentTime;
   }
-  function setCurrentTime() {
-    return vidframe.currentTime;
+  function setCurrentTime(time) {
+    vidframe.currentTime = time;
   }
 
   vidframe.addEventListener('timeupdate',function(evt){

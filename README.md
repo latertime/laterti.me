@@ -1,5 +1,7 @@
 # [laterti.me](http://laterti.me)
 
+[![Join the chat at https://gitter.im/latertime/laterti.me](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/latertime/laterti.me?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![latertime logo](client/latertime.png)
 
 Instant messaging on a tape delay
